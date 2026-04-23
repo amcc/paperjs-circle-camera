@@ -1,3 +1,4 @@
+// the variables
 const MIN_RADIUS = 0.5;
 let W = 0;
 let H = 0;
