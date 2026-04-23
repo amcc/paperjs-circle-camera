@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Pixel Vision</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar">
+        <div id="sidebar-top">
+          <h1>GMD Circles</h1>
+          <span id="status">—</span>
+
+          <label class="control" for="divisions">
+            <span>divisions: <strong id="divisions-value">10</strong></span>
+            <input
+              id="divisions"
+              type="range"
+              min="4"
+              max="80"
+              step="1"
+              value="30"
+            />
+          </label>
+
+          <label class="control" for="size-multiplier">
+            <span
+              >size multiplier:
+              <strong id="size-multiplier-value">0.80</strong></span
+            >
+            <input
+              id="size-multiplier"
+              type="range"
+              min="0.05"
+              max="2"
+              step="0.01"
+              value="0.8"
+            />
+          </label>
+
+          <div id="actions">
+            <button class="btn primary" id="btn-export" onclick="exportSVG()">
+              export svg
+            </button>
+            <button class="btn" id="btn-export-raw" onclick="exportSVGRaw()">
+              export svg raw
+            </button>
+          </div>
+        </div>
+
+        <div id="sidebar-bottom">
+          <div id="debug-wrap">
+            <video
+              id="vid"
+              autoplay
+              playsinline
+              muted
+              width="320"
+              height="240"
+            ></video>
+            <canvas id="debug-canvas" width="320" height="240"></canvas>
+          </div>
+
+          <button class="btn" id="btn-debug" onclick="toggleDebug()">
+            show camera
+          </button>
+        </div>
+      </aside>
+
+      <div id="canvas-wrap">
+        <canvas id="c"></canvas>
+      </div>
+    </div>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
